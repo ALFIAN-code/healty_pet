@@ -10,31 +10,29 @@ class Search extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 240, 240, 240),
-        borderRadius: BorderRadius.circular(15)
-      ),
-      child: Row(
-        children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(22, 10, 5, 10),
-            child: Icon(FeatherIcons.search, color: Colors.black54)
+    return TextField(
+      controller: controller,
+      textAlignVertical: TextAlignVertical.center,
+      style: GoogleFonts.manrope(
+          textStyle:
+              bold16.copyWith(color: const Color.fromARGB(255, 105, 105, 105))),
+      decoration: InputDecoration(
+          filled: true,
+          fillColor: const Color.fromARGB(255, 240, 240, 240),
+          prefixIcon: const Icon(FeatherIcons.search, size: 20,),
+          prefixIconConstraints: const BoxConstraints(
+            minWidth: 50
           ),
-
-          Expanded(child: TextField(
-            style:GoogleFonts.manrope(textStyle: bold16.copyWith(color: const Color.fromARGB(255, 105, 105, 105))),
-            decoration: InputDecoration(
-            
-              hintText: 'Find best vaccinate, treatment...',
-              hintStyle: GoogleFonts.manrope(textStyle: bold16.copyWith(color: const Color.fromARGB(255, 196, 195, 195))),
-              border: const OutlineInputBorder(
-                borderSide: BorderSide.none
-              )
-            ),
-          ))
-        ],
-      ),
+          isDense: true,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 17, horizontal: 10),
+          hintText: 'Find best vaccinate, treatment...',
+          hintStyle: GoogleFonts.manrope(
+              textStyle: bold16.copyWith(
+                  color: const Color.fromARGB(255, 196, 195, 195))),
+          border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(15))),
     );
   }
 }
