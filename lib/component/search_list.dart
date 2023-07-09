@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:healty_pet/models/services_model.dart';
+import 'package:healty_pet/page/homepage.dart';
 import 'package:healty_pet/style/style.dart';
 
 class SearchList extends StatefulWidget {
-  const SearchList({super.key});
+  const SearchList({
+    super.key,
+  });
 
   @override
   State<SearchList> createState() => _SearchListState();
 }
 
-List searchList = ServiceModel.all();
-int selected = 0;
-
 class _SearchListState extends State<SearchList> {
+  final List searchList = ServiceModel.all();
+
+  int selected = 0;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -27,7 +31,9 @@ class _SearchListState extends State<SearchList> {
           return GestureDetector(
             onTap: () {
               setState(() {
-                selected = index;
+                setState(() {
+                  selected = index;
+                });
               });
             },
             child: Container(

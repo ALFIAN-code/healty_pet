@@ -23,7 +23,7 @@ class HeroCard extends StatelessWidget {
             children: [
               Image.asset('lib/asset/image/Background_card.png', height:double.maxFinite, width: double.maxFinite, fit: BoxFit.cover,),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

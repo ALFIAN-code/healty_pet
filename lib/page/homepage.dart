@@ -7,11 +7,16 @@ import 'package:healty_pet/component/search_list.dart';
 import 'package:healty_pet/style/style.dart';
 import 'package:feather_icons/feather_icons.dart';
 
-class Homepage extends StatelessWidget {
-  Homepage({super.key});
+final TextEditingController controller = TextEditingController();
 
-  final TextEditingController _controller = TextEditingController();
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
 
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
   final PreferredSize appbar = PreferredSize(
     preferredSize: const Size.fromHeight(80),
     child: Container(
@@ -67,7 +72,6 @@ class Homepage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 247, 247, 247),
         appBar: appbar,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -85,7 +89,7 @@ class Homepage extends StatelessWidget {
               ),
               //search bar
               Search(
-                controller: _controller,
+                controller: controller,
               ),
               const SizedBox(
                 height: 20,
@@ -94,7 +98,7 @@ class Homepage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              DoctorCard()
+              const Expanded(child: DoctorCard())
 
               //tab bar
               //
