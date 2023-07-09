@@ -4,9 +4,7 @@ import 'package:healty_pet/style/style.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HeroCard extends StatelessWidget {
-  const HeroCard({super.key, required this.deviceheight});
-
-  final double deviceheight;
+  const HeroCard({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +13,6 @@ class HeroCard extends StatelessWidget {
       aspectRatio: 336 / 184,
       child: Container(
           clipBehavior: Clip.hardEdge,
-          // height: deviceheight * 0.3,
-          // width: double.infinity,
           decoration: BoxDecoration(
               color: primary1, borderRadius: BorderRadius.circular(20)),
           child: Stack(

@@ -19,38 +19,50 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   final PreferredSize appbar = PreferredSize(
     preferredSize: const Size.fromHeight(80),
-    child: Container(
-      margin: const EdgeInsets.fromLTRB(30, 60, 25, 0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
         children: [
-          Text('Hello, Human!',
-              style: GoogleFonts.manrope(
-                  textStyle:
-                      extraBold26.copyWith(color: const Color(0xff3F3E3F)))),
-          Stack(
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    FeatherIcons.shoppingBag,
-                    color: Color(0xff818AF9),
-                  )),
-              Positioned(
-                top: 2,
-                right: 4,
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: const ShapeDecoration(
-                      color: accent1, shape: CircleBorder()),
-                  child: Text(
-                    '2',
-                    style: bold14.copyWith(color: Colors.white, fontSize: 13),
-                  ),
-                ),
-              )
-            ],
-          )
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Hello, Human!',
+                    style: GoogleFonts.manrope(
+                        textStyle: extraBold26.copyWith(
+                            color: const Color(0xff3F3E3F)))),
+                Stack(
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          FeatherIcons.shoppingBag,
+                          color: Color(0xff818AF9),
+                        )),
+                    Positioned(
+                      top: 2,
+                      right: 4,
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: const ShapeDecoration(
+                            color: accent1, shape: CircleBorder()),
+                        child: Text(
+                          '2',
+                          style:
+                              bold14.copyWith(color: Colors.white, fontSize: 13),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const HeroCard(),
         ],
       ),
     ),
@@ -72,40 +84,46 @@ class _HomepageState extends State<Homepage> {
         }
       },
       child: Scaffold(
-        appBar: appbar,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            children: [
-              //hero card
-              const SizedBox(
-                height: 20,
-              ),
-              HeroCard(
-                deviceheight: deviceHeight,
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              //search bar
-              Search(
-                controller: controller,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SearchList(),
-              const SizedBox(
-                height: 20,
-              ),
-              const Expanded(child: DoctorCard())
+          // appBar: appbar,
+          body: SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [
+              SliverAppBar(
+                toolbarHeight: deviceHeight * 0.4,
+                backgroundColor: Colors.transparent,
+                flexibleSpace: appbar,
+              )
+            ];
+          },
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              children: [
+                //hero card
 
-              //tab bar
-              //
-            ],
+                // const SizedBox(
+                //   height: 25,
+                // ),
+                Search(
+                  controller: controller,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const SearchList(),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Expanded(child: DoctorCard())
+
+                //tab bar
+                //
+              ],
+            ),
           ),
         ),
-      ),
+      )),
     );
   }
 }
