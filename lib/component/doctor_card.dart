@@ -41,6 +41,7 @@ class DoctorCard extends StatelessWidget {
                 BoxShadow(
                     color: Color.fromARGB(17, 0, 0, 0),
                     blurStyle: BlurStyle.normal,
+                    
                     blurRadius: 10)
               ],
               color: const Color.fromARGB(255, 255, 255, 255),
