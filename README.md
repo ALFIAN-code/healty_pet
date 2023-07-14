@@ -1,6 +1,13 @@
 # healty_pet
 
-A new Flutter project.
+slicing ui healty pet app with flutter framework, 
+
+figma link : [healty pet figma](https://www.figma.com/community/file/1249246050937447456)
+
+
+preview : 
+![swappy-20230714_220936](https://github.com/ALFIAN-code/healty_pet/assets/82469267/46160562-accf-41eb-9be1-c57c517371dc)
+
 
 ## Getting Started
 
